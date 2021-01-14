@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import Confetti from "react-dom-confetti";
 import { css } from "@emotion/css";
 
@@ -39,24 +40,31 @@ class Birthday extends React.Component {
     };
 
     return (
-      <main className="bg-indigo-300 h-screen w-screen text-center">
-        <div className="flex flex-col font-fredokaOne">
-          <h1 className="text-5xl">Happy Birthday</h1>
-          <img
-            src="/susan.png"
-            alt="beautiful mama susan"
-            className="object-contain object-center mt-20 animate-bounce"
-          />
-          <h1 className="text-5xl">Susan Turner Stephens!</h1>
-        </div>
-        <div className="text-sm font-fredokaOne">{this.state.hint}</div>
-        <div className={presentContainer}>
-          <Confetti active={this.state.confetti} config={config} />
-          <button className={presentButton} onClick={this.openPresent}>
-            {this.state.item}
-          </button>
-        </div>
-      </main>
+      <>
+        <Head>
+          <title>Happy Bday Mom</title>
+          <link rel="icon" href="/apple-touch-icon.png" />
+          <meta property="og:image" content="/wedding.png" />
+        </Head>
+        <main className="bg-indigo-300 h-screen w-screen text-center">
+          <div className="flex flex-col font-fredokaOne">
+            <h1 className="text-5xl">Happy Birthday</h1>
+            <img
+              src="/susan.png"
+              alt="beautiful mama susan"
+              className="object-contain object-center mt-20 animate-bounce"
+            />
+            <h1 className="text-5xl">Susan Turner Stephens!</h1>
+          </div>
+          <div className="text-sm font-fredokaOne">{this.state.hint}</div>
+          <div className={presentContainer}>
+            <Confetti active={this.state.confetti} config={config} />
+            <button className={presentButton} onClick={this.openPresent}>
+              {this.state.item}
+            </button>
+          </div>
+        </main>
+      </>
     );
   }
 }
